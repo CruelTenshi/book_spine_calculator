@@ -6,19 +6,26 @@
 	<script src='script.js'></script>
 </head>
 <body>
-	<h1>중량지 80g 기준</h1>
+<div style="padding-bottom: 20px;">
+<a style="color: red; font-size: x-large;">!주의!<br/>중량지 80g, A4 기준<br/>단위는 'cm'입니다.</a>
+</div>
+<div>
 	<input type="text" id="page" placeholder=" 페이지수를 입력하세요.">
 	<button onclick='calculate()'>계산</button>
 	<br/><br/>
-	<h3>가로 × 세로</h3>
+	<h3>권장 책등의 너비</h3>
+	<a id='spine'>N</a><a> cm</a>
+	<br/><br/>
+	<h3>책등 파일의, 가로 × 세로</h3>
 	<a id='width'>N</a><a> cm</a>
 	<a> × </a>
 	<a id='height'>N</a><a> cm</a>
 	<br/><br/>
-	<h3>좌측 모서리로부터 앞 표지의 모서리 위치</h3>
+	<h3>좌측 모서리로부터 앞 표지(A4)의 모서리 위치</h3>
 	<a id='fromLeft'>N</a><a> cm</a>
 	<br/><br/>
-	<h3>상단 모서리로부터 앞 표지의 모서리 위치</h3>
+	<h3>상단 모서리로부터 앞 표지(A4)의 모서리 위치</h3>
 	<a id='fromTop'>N</a><a> cm</a>
+</div>
 </body>
 </html>
