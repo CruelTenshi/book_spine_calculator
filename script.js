@@ -7,7 +7,7 @@ function calculate() {
 		alert('정수를 입력해주세요.')
 	} else {
 		spine = Number((0.046*page).toFixed(1))/10;
-		document.getElementById('spine').innerText = spine.toFixed(1);
+		document.getElementById('spine_width').innerText = spine.toFixed(1);
 		document.getElementById('width').innerText = Number(((6 + 210*2)/10 + spine).toFixed(2));
 		document.getElementById('height').innerText = 30.3;
 		document.getElementById('fromTop').innerText = 0.3;
