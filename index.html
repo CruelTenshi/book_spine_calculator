@@ -1,31 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<title>책등 너비 계산기</title>
-	<script src='script.js'></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>표지 크기 계산기</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+      position: relative;
+    }
+
+    .desktop-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .side-image {
+      width: 300px;
+      height: auto;
+    }
+
+    .container {
+      background: white;
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #dc3545;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      padding: 10px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    /* PC 버전 우측 하단 텍스트 */
+    .pc-footer {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    /* 모바일 화면 전용 스타일 */
+    @media (max-width: 768px) {
+      .desktop-container {
+        flex-direction: column;
+      }
+      .side-image {
+        display: none; /* 모바일에서는 이미지 숨김 */
+      }
+      .container {
+        max-width: 90%;
+      }
+      .pc-footer {
+        display: none; /* 모바일에서는 우측 하단 텍스트 숨김 */
+      }
+    }
+  </style>
 </head>
 <body>
-<div style="padding-bottom: 20px;">
-<a style="color: red; font-size: x-large;">!주의!<br/>중량지 80g, A4 기준<br/>단위는 'cm'입니다.</a>
-</div>
-<div>
-	<input type="text" id="page" placeholder=" 페이지수를 입력하세요.">
-	<button onclick='calculate()'>계산</button>
-	<br/><br/>
-	<h3>권장 책등의 너비</h3>
-	<a id='spine_width'>N</a><a> cm</a>
-	<br/><br/>
-	<h3>책등 파일의, 가로 × 세로</h3>
-	<a id='width'>N</a><a> cm</a>
-	<a> × </a>
-	<a id='height'>N</a><a> cm</a>
-	<br/><br/>
-	<h3>좌측 모서리로부터 앞 표지(A4)의 모서리 위치</h3>
-	<a id='fromLeft'>N</a><a> cm</a>
-	<br/><br/>
-	<h3>상단 모서리로부터 앞 표지(A4)의 모서리 위치</h3>
-	<a id='fromTop'>N</a><a> cm</a>
-</div>
+  <div class="desktop-container">
+    <!-- 좌측 이미지 -->
+    <a href="https://laftel.net/?modal=42711">
+    	<img src="bocchi_season2.webp" alt="책 이미지" class="side-image">
+    </a>
+    <!-- 중앙 콘텐츠 -->
+    <div class="container">
+      <h1>⚠️ !주의! 중량지 A4, 80g, 양면인쇄 기준 (단위: cm)</h1>
+      <h1>상하좌우 0.3cm는 절단됩니다.</h1>
+      <input type="text" id="page" placeholder="페이지수를 입력하세요.">
+      <button onclick="calculate()">계산</button>
+      
+      <div class="result">
+        <h3>📏 권장 책등의 너비</h3>
+        <span id="spine_width" class="highlight">N</span> cm
+        
+        <h3>📐 권장 전체 파일 크기 (가로 × 세로)</h3>
+        <span id="width" class="highlight">N</span> cm × 
+        <span id="height" class="highlight">N</span> cm
+        
+        <h3>📍 앞 표지(A4) 위치 (좌측 모서리 기준)</h3>
+        <span id="fromLeft" class="highlight">N</span> cm
+        
+        <h3>📍 앞 표지(A4) 위치 (상단 모서리 기준)</h3>
+        <span id="fromTop" class="highlight">N</span> cm
+      </div>
+    </div>
+    
+    <!-- 우측 이미지 -->
+    <a href="https://laftel.net/?modal=42712">
+    	<img src="bocchi_season2.webp" alt="책 이미지" class="side-image">
+    </a>
+  </div>
+  
+  <!-- PC 버전 전용 우측 하단 텍스트 -->
+  <div class="pc-footer">Made By Hajun</div>
 </body>
 </html>
